@@ -1,18 +1,55 @@
 'use client';
-import React, { useState } from 'react'
+import React, { useMemo, useState } from 'react'
 import Stat from './Stat';
+import type { StatType, StatName } from "./types";
 
 const StatsCalculator = () => {
-    const [costs, setCosts] = useState({ strength: 0, attack: 0, defence: 0, agility: 0, stamina: 0 });
+    const [stats, setStats] = useState([{
+        name: "Strength",
+        current: 1,
+        goal: 1,
+        cost: 0
+    },
+    {
+        name: "Attack",
+        current: 1,
+        goal: 1,
+        cost: 0
+    },
+    {
+        name: "Defence",
+        current: 1,
+        goal: 1,
+        cost: 0
+    },
+    {
+        name: "Agility",
+        current: 1,
+        goal: 1,
+        cost: 0
+    },
+    {
+        name: "Stamina",
+        current: 1,
+        goal: 1,
+        cost: 0
+    }]);
+    console.log("NEW STATS");
+    console.log(stats)
 
-    const updateCost = (newCost: Object) => {
-        setCosts({ ...costs, ...newCost })
+    const totalCost = useMemo(() => {
+        console.log("CALCULATING TOTAL FROM STATS")
+        console.log(stats)
+        return stats.reduce((sum, s) => sum + s.cost, 0);
+    }, [stats]);
+
+    const updateStat = (newStat: StatType) => {
+        console.log("OLD STATS")
+        console.log(stats)
+        console.log("UPDATING TO THIS STAT")
+        console.log(newStat);
+        setStats(prevStats => prevStats.map(stat => stat.name === newStat.name ? newStat : stat))
     }
-
-    const getTotalCost = () => {
-        return Object.values(costs).reduce((sum, val) => sum + val, 0);
-    }
-
 
     return (
         <div className="w-auto max-w-fit mx-auto">
@@ -23,27 +60,18 @@ const StatsCalculator = () => {
                     <p className="col-span-1 p-2">Goal</p>
                     <p className="col-span-1 p-2">Cost</p>
                 </div>
-                <div className="col-span-4">
-                    <Stat statName="Strength" updateCost={updateCost} />
-                </div>
-                <div className="col-span-4">
-                    <Stat statName="Attack" updateCost={updateCost} />
-                </div>
-                <div className="col-span-4">
-                    <Stat statName="Defence" updateCost={updateCost} />
-                </div>
-                <div className="col-span-4">
-                    <Stat statName="Agility" updateCost={updateCost} />
-                </div>
-                <div className="col-span-4">
-                    <Stat statName="Stamina" updateCost={updateCost} />
-                </div>
+                {stats.map(stat => (
+                    <div className="col-span-4">
+                        <Stat stat={stat} updateStat={updateStat} />
+                    </div>
+                ))}
+
                 <div className="col-span-4">
                     <div className="col-span-4 grid grid-cols-4 gap-30 bg-gray-100">
                         <p className="col-span-1 p-2"></p>
                         <p className="col-span-1 p-2"></p>
                         <p className="col-span-1 p-2 ml-auto">Total: </p>
-                        <p className="col-span-1 p-2">{getTotalCost()}</p>
+                        <p className="col-span-1 p-2">{totalCost}</p>
                     </div>
                 </div>
             </div>
