@@ -5,7 +5,7 @@ const HorseStat = ({ horseStat, updateHorseStat }: { horseStat: HorseStatType, u
 
     const calculateCost = (horseStat: HorseStatType) => {
         const { current, goal } = horseStat;
-        if (goal <= current || current <= horseStat.default) return 0;
+        if (goal <= current || current < horseStat.default) return 0;
 
         const costCurrent = horseStat.current - horseStat.default + 1;
         const costGoal = horseStat.goal - horseStat.default + 1;
@@ -33,26 +33,29 @@ const HorseStat = ({ horseStat, updateHorseStat }: { horseStat: HorseStatType, u
     }
 
     const updateGoal = (e: React.ChangeEvent<HTMLInputElement>) => {
+        console.log("updating goal")
         const newGoal = Number(e.target.value);
+        console.log("newGoal" + newGoal);
         const cost = calculateCost({ ...horseStat, goal: newGoal });
+        console.log("cost" + cost);
         updateHorseStat({
             ...horseStat, goal: newGoal, cost
         })
     }
 
     return (
-        <div className="col-span-5 grid grid-cols-5 gap-30 bg-gray-100">
-            <p className="col-span-1 p-2">{horseStat.name}</p>
+        <div className="col-span-5 grid grid-cols-5 gap-30 ">
+            <p className="col-span-1 p-2" style={{ color: "#ffeaaf", fontSize: "20px", textAlign: "center", fontFamily: "'Times New Roman', Times, serif" }}>{horseStat.name}</p>
             <p className="col-span-1 p-2">
-                <input type="text" className="bg-white rounded" onChange={updateDefault} value={horseStat.default} />
+                <input type="text" onChange={updateDefault} value={horseStat.default} className="p-1" style={{ backgroundColor: "#322e29", borderColor: "#7a6d68", borderWidth: "1px", color: "#fef1d7" }} size={4} />
             </p>
             <p className="col-span-1 p-2">
-                <input type="text" className="bg-white rounded" onChange={updateCurrent} value={horseStat.current} />
+                <input type="text" onChange={updateCurrent} value={horseStat.current} className="p-1" style={{ backgroundColor: "#322e29", borderColor: "#7a6d68", borderWidth: "1px", color: "#fef1d7" }} size={4} />
             </p>
             <p className="col-span-1 p-2">
-                <input type="text" className="bg-white rounded" onChange={updateGoal} value={horseStat.goal} />
+                <input type="text" onChange={updateGoal} value={horseStat.goal} className="p-1" style={{ backgroundColor: "#322e29", borderColor: "#7a6d68", borderWidth: "1px", color: "#fef1d7" }} size={4} />
             </p>
-            <p className="col-span-1 p-2">{horseStat.cost}</p>
+            <p className="col-span-1 p-2" style={{ color: "#ffeaaf", fontSize: "20px", textAlign: "center", fontFamily: "'Times New Roman', Times, serif" }}>{horseStat.cost}</p>
         </div>
     )
 }

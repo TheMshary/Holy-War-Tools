@@ -1,6 +1,6 @@
 'use client';
 import React, { useMemo, useState } from 'react'
-import tableHead from '../../../public/assets/table_head.jpg';
+import Image from "next/image";
 import CharStat from './CharStat';
 import HorseStat from './HorseStat';
 import type { HorseStatType, CharStatType, StatName } from "./types";
@@ -76,51 +76,64 @@ const StatsCalculator = () => {
 
     return (
         <div className="w-auto max-w-fit mx-auto">
-            <div className="grid grid-rows-8 gap-2">
-                <div className="col-span-4" style={{ backgroundImage: `url(${tableHead.src})` }}>
+            <div className="grid gap-2">
+                <div className="col-span-4">
                     <p style={{ color: "#ffeaaf", fontSize: "24px", textAlign: "center", fontFamily: "'Times New Roman', Times, serif" }}>Character Attributes</p>
                 </div>
-                <div className="col-span-4 grid grid-cols-4 gap-30 bg-gray-400">
-                    <p className="col-span-1 p-2"></p>
-                    <p className="col-span-1 p-2">Current</p>
-                    <p className="col-span-1 p-2">Goal</p>
-                    <p className="col-span-1 p-2">Cost</p>
+                <div className="col-span-4">
+                    <div className="col-span-4 grid grid-cols-4 gap-30">
+                        <p className="col-span-1 p-2"></p>
+                        <p className="col-span-1 p-2 mr-auto" style={{ color: "#ffeaaf", fontSize: "20px", textAlign: "center", fontFamily: "'Times New Roman', Times, serif" }}>Current</p>
+                        <p className="col-span-1 p-2 mr-auto" style={{ color: "#ffeaaf", fontSize: "20px", textAlign: "center", fontFamily: "'Times New Roman', Times, serif" }}>Goal</p>
+                        <p className="col-span-1 p-2" style={{ color: "#ffeaaf", fontSize: "20px", textAlign: "center", fontFamily: "'Times New Roman', Times, serif" }}>Cost</p>
+                    </div>
                 </div>
-                {charStats.map(charStat => (
-                    <CharStat charStat={charStat} updateCharStat={updateCharStat} key={charStat.name} />
-                ))}
+                <div className="col-span-4">
+                    {charStats.map(charStat => (
+                        <div key={charStat.name}>
+                            <CharStat charStat={charStat} updateCharStat={updateCharStat} />
+                            {charStat.name != "Stamina" && <Image src="/assets/trennlinie.jpg" width="682" height="13" alt="divider" className="mx-auto" />}
+                        </div>
+                    ))}
+                </div>
 
                 <div className="col-span-4">
-                    <div className="col-span-4 grid grid-cols-4 gap-30 bg-gray-100">
+                    <div className="col-span-4 grid grid-cols-4 gap-30">
                         <p className="col-span-1 p-2"></p>
                         <p className="col-span-1 p-2"></p>
-                        <p className="col-span-1 p-2 ml-auto">Total: </p>
-                        <p className="col-span-1 p-2">{charTotalCost}</p>
+                        <p className="col-span-1 p-2 ml-auto" style={{ color: "#ffeaaf", fontSize: "20px", textAlign: "center", fontFamily: "'Times New Roman', Times, serif" }}>Character Total: </p>
+                        <p className="col-span-1 p-2" style={{ color: "#ffeaaf", fontSize: "20px", textAlign: "center", fontFamily: "'Times New Roman', Times, serif" }}>{charTotalCost}</p>
                     </div>
                 </div>
             </div>
             <div className="grid gap-2 my-20">
                 <div className="col-span-5">
-                    <div className="col-span-5 grid grid-cols-5 gap-30 bg-gray-400">
+                    <p style={{ color: "#ffeaaf", fontSize: "24px", textAlign: "center", fontFamily: "'Times New Roman', Times, serif" }}>Horse Attributes</p>
+                </div>
+                <div className="col-span-5">
+                    <div className="col-span-5 grid grid-cols-5 gap-30">
                         <p className="col-span-1 p-2"></p>
-                        <p className="col-span-1 p-2">Default</p>
-                        <p className="col-span-1 p-2">Current</p>
-                        <p className="col-span-1 p-2">Goal</p>
-                        <p className="col-span-1 p-2">Cost</p>
+                        <p className="col-span-1 p-2 mr-auto" style={{ color: "#ffeaaf", fontSize: "20px", textAlign: "center", fontFamily: "'Times New Roman', Times, serif" }}>Default</p>
+                        <p className="col-span-1 p-2 mr-auto" style={{ color: "#ffeaaf", fontSize: "20px", textAlign: "center", fontFamily: "'Times New Roman', Times, serif" }}>Current</p>
+                        <p className="col-span-1 p-2 mr-auto" style={{ color: "#ffeaaf", fontSize: "20px", textAlign: "center", fontFamily: "'Times New Roman', Times, serif" }}>Goal</p>
+                        <p className="col-span-1 p-2" style={{ color: "#ffeaaf", fontSize: "20px", textAlign: "center", fontFamily: "'Times New Roman', Times, serif" }}>Cost</p>
                     </div>
                 </div>
                 <div className="col-span-5">
                     {horseStats.map(horseStat => (
-                        <HorseStat horseStat={horseStat} updateHorseStat={updateHorseStat} key={horseStat.name} />
+                        <div key={horseStat.name}>
+                            <HorseStat horseStat={horseStat} updateHorseStat={updateHorseStat} />
+                            {horseStat.name != "Stamina" && <Image src="/assets/trennlinie.jpg" width="682" height="13" alt="divider" className="mx-auto" />}
+                        </div>
                     ))}
                 </div>
                 <div className="col-span-5">
-                    <div className="col-span-5 grid grid-cols-5 gap-30 bg-gray-100">
+                    <div className="col-span-5 grid grid-cols-5 gap-30">
                         <p className="col-span-1 p-2"></p>
                         <p className="col-span-1 p-2"></p>
                         <p className="col-span-1 p-2"></p>
-                        <p className="col-span-1 p-2 ml-auto">Total: </p>
-                        <p className="col-span-1 p-2">{horseTotalCost}</p>
+                        <p className="col-span-1 p-2 ml-auto" style={{ color: "#ffeaaf", fontSize: "20px", textAlign: "center", fontFamily: "'Times New Roman', Times, serif" }}>Horse Total: </p>
+                        <p className="col-span-1 p-2" style={{ color: "#ffeaaf", fontSize: "20px", textAlign: "center", fontFamily: "'Times New Roman', Times, serif" }}>{horseTotalCost}</p>
                     </div>
                 </div>
             </div>
