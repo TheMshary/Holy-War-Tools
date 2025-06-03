@@ -1,5 +1,6 @@
 'use client';
 import React, { useMemo, useState } from 'react'
+import tableHead from '../../../public/assets/table_head.jpg';
 import CharStat from './CharStat';
 import HorseStat from './HorseStat';
 import type { HorseStatType, CharStatType, StatName } from "./types";
@@ -75,7 +76,10 @@ const StatsCalculator = () => {
 
     return (
         <div className="w-auto max-w-fit mx-auto">
-            <div className="grid grid-rows-7 gap-2">
+            <div className="grid grid-rows-8 gap-2">
+                <div className="col-span-4" style={{ backgroundImage: `url(${tableHead.src})` }}>
+                    <p style={{ color: "#ffeaaf", fontSize: "24px", textAlign: "center", fontFamily: "'Times New Roman', Times, serif" }}>Character Attributes</p>
+                </div>
                 <div className="col-span-4 grid grid-cols-4 gap-30 bg-gray-400">
                     <p className="col-span-1 p-2"></p>
                     <p className="col-span-1 p-2">Current</p>
