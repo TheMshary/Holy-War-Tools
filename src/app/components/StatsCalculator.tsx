@@ -34,20 +34,12 @@ const StatsCalculator = () => {
         goal: 1,
         cost: 0
     }]);
-    console.log("NEW STATS");
-    console.log(stats)
 
     const totalCost = useMemo(() => {
-        console.log("CALCULATING TOTAL FROM STATS")
-        console.log(stats)
         return stats.reduce((sum, s) => sum + s.cost, 0);
     }, [stats]);
 
     const updateStat = (newStat: StatType) => {
-        console.log("OLD STATS")
-        console.log(stats)
-        console.log("UPDATING TO THIS STAT")
-        console.log(newStat);
         setStats(prevStats => prevStats.map(stat => stat.name === newStat.name ? newStat : stat))
     }
 
