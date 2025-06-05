@@ -97,6 +97,10 @@ const StatsCalculator = () => {
         return horseStats.reduce((sum, s) => sum + s.cost, 0);
     }, [horseStats]);
 
+    const totalCost = useMemo(() => {
+        return charTotalCost + horseTotalCost;
+    }, [charStats, horseStats]);
+
     const updateCharStat = (newCharStat: CharStatType) => {
         setCharStats(prevCharStats => [...prevCharStats.map(charStat => charStat.name === newCharStat.name ? newCharStat : charStat)] as CharStats)
     }
@@ -168,6 +172,9 @@ const StatsCalculator = () => {
                     </div>
                 </div>
             </div>
+            <p style={{ color: "#ffeaaf", fontSize: "20px", textAlign: "center", fontFamily: "'Times New Roman', Times, serif" }}>
+                Total: {totalCost.toLocaleString()}g
+            </p>
         </div >
     )
 }
