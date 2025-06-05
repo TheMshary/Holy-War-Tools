@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import type { CharStatType, StatName } from "./types";
+import type { CharStatType } from "./types";
 
 const CharStat = ({ charStat, updateCharStat }: { charStat: CharStatType, updateCharStat: Function }) => {
 

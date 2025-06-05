@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import type { HorseStatType, StatName } from "./types";
+import type { HorseStatType } from "./types";
 
 const HorseStat = ({ horseStat, updateHorseStat }: { horseStat: HorseStatType, updateHorseStat: Function }) => {
 

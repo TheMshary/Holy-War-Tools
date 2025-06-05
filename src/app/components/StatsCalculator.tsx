@@ -1,62 +1,93 @@
 'use client';
-import React, { useMemo, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import Image from "next/image";
 import CharStat from './CharStat';
 import HorseStat from './HorseStat';
-import type { HorseStatType, CharStatType, StatName } from "./types";
+import type { HorseStatType, CharStatType, CharStats, HorseStats } from "./types";
+
+const defaultCharStats: CharStats = [{
+    name: "Strength",
+    current: 1,
+    goal: 1,
+    cost: 0
+},
+{
+    name: "Attack",
+    current: 1,
+    goal: 1,
+    cost: 0
+},
+{
+    name: "Defence",
+    current: 1,
+    goal: 1,
+    cost: 0
+},
+{
+    name: "Agility",
+    current: 1,
+    goal: 1,
+    cost: 0
+},
+{
+    name: "Stamina",
+    current: 1,
+    goal: 1,
+    cost: 0
+}]
+const defaultHorseStats: HorseStats = [{
+    name: "Attack",
+    default: 1,
+    current: 1,
+    goal: 1,
+    cost: 0
+},
+{
+    name: "Defence",
+    default: 1,
+    current: 1,
+    goal: 1,
+    cost: 0
+},
+{
+    name: "Stamina",
+    default: 1,
+    current: 1,
+    goal: 1,
+    cost: 0
+}]
 
 const StatsCalculator = () => {
-    const [charStats, setCharStats] = useState([{
-        name: "Strength",
-        current: 1,
-        goal: 1,
-        cost: 0
-    },
-    {
-        name: "Attack",
-        current: 1,
-        goal: 1,
-        cost: 0
-    },
-    {
-        name: "Defence",
-        current: 1,
-        goal: 1,
-        cost: 0
-    },
-    {
-        name: "Agility",
-        current: 1,
-        goal: 1,
-        cost: 0
-    },
-    {
-        name: "Stamina",
-        current: 1,
-        goal: 1,
-        cost: 0
-    }]);
-    const [horseStats, setHorseStats] = useState([{
-        name: "Attack",
-        default: 1,
-        current: 1,
-        goal: 1,
-        cost: 0
-    },
-    {
-        name: "Defence",
-        default: 1,
-        current: 1,
-        goal: 1,
-        cost: 0
-    },
-    {
-        name: "Stamina",
-        default: 1,
-        current: 1,
-        goal: 1,
-        cost: 0
-    }]);
+    const [charStats, setCharStats] = useState<CharStats>(defaultCharStats);
+    const [horseStats, setHorseStats] = useState<HorseStats>(defaultHorseStats);
+
+    useEffect(() => {
+        try {
+            const storedCharStats = localStorage.getItem("charStats");
+            if (storedCharStats !== null) setCharStats(JSON.parse(storedCharStats));
+        } catch (err) {
+            console.warn("Failed to parse charStats from localStorage", err);
+            setCharStats(defaultCharStats);
+        }
+    }, []);
+
+    useEffect(() => {
+        localStorage.setItem("charStats", JSON.stringify(charStats));
+    }, [charStats]);
+
+    useEffect(() => {
+        try {
+            const storedHorseStats = localStorage.getItem("horseStats");
+            if (storedHorseStats !== null) setHorseStats(JSON.parse(storedHorseStats));
+        } catch (err) {
+            console.warn("Failed to parse horseStats from localStorage", err);
+            setHorseStats(defaultHorseStats);
+        }
+    }, []);
+
+    useEffect(() => {
+        localStorage.setItem("horseStats", JSON.stringify(horseStats));
+    }, [horseStats]);
 
     const charTotalCost = useMemo(() => {
         return charStats.reduce((sum, s) => sum + s.cost, 0);
@@ -67,11 +98,11 @@ const StatsCalculator = () => {
     }, [horseStats]);
 
     const updateCharStat = (newCharStat: CharStatType) => {
-        setCharStats(prevCharStats => prevCharStats.map(charStat => charStat.name === newCharStat.name ? newCharStat : charStat))
+        setCharStats(prevCharStats => [...prevCharStats.map(charStat => charStat.name === newCharStat.name ? newCharStat : charStat)] as CharStats)
     }
 
     const updateHorseStat = (newHorseStat: HorseStatType) => {
-        setHorseStats(prevHorseStats => prevHorseStats.map(horseStat => horseStat.name === newHorseStat.name ? newHorseStat : horseStat))
+        setHorseStats(prevHorseStats => prevHorseStats.map(horseStat => horseStat.name === newHorseStat.name ? newHorseStat : horseStat) as HorseStats)
     }
 
     return (
