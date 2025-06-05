@@ -173,7 +173,7 @@ const StatsCalculator = () => {
                 </div>
             </div>
             <p style={{ color: "#ffeaaf", fontSize: "20px", textAlign: "center", fontFamily: "'Times New Roman', Times, serif" }}>
-                Total: {totalCost.toLocaleString()}g
+                Total: {totalCost.toLocaleString()}
             </p>
         </div >
     )
