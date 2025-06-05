@@ -34,7 +34,7 @@ const CharStat = ({ charStat, updateCharStat }: { charStat: CharStatType, update
             <p className="col-span-1 p-2">
                 <input type="text" onChange={updateGoal} value={charStat.goal} className="p-1" style={{ backgroundColor: "#322e29", borderColor: "#7a6d68", borderWidth: "1px", color: "#fef1d7" }} size={4} />
             </p>
-            <p className="col-span-1 p-2" style={{ color: "#ffeaaf", fontSize: "20px", textAlign: "center", fontFamily: "'Times New Roman', Times, serif" }}>{charStat.cost}</p>
+            <p className="col-span-1 p-2" style={{ color: "#ffeaaf", fontSize: "20px", textAlign: "center", fontFamily: "'Times New Roman', Times, serif" }}>{charStat.cost.toLocaleString()}</p>
         </div>
     )
 }

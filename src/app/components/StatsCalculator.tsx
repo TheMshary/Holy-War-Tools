@@ -102,7 +102,7 @@ const StatsCalculator = () => {
                         <p className="col-span-1 p-2"></p>
                         <p className="col-span-1 p-2"></p>
                         <p className="col-span-1 p-2 ml-auto" style={{ color: "#ffeaaf", fontSize: "20px", textAlign: "center", fontFamily: "'Times New Roman', Times, serif" }}>Character Total: </p>
-                        <p className="col-span-1 p-2" style={{ color: "#ffeaaf", fontSize: "20px", textAlign: "center", fontFamily: "'Times New Roman', Times, serif" }}>{charTotalCost}</p>
+                        <p className="col-span-1 p-2" style={{ color: "#ffeaaf", fontSize: "20px", textAlign: "center", fontFamily: "'Times New Roman', Times, serif" }}>{charTotalCost.toLocaleString()}</p>
                     </div>
                 </div>
             </div>
@@ -133,7 +133,7 @@ const StatsCalculator = () => {
                         <p className="col-span-1 p-2"></p>
                         <p className="col-span-1 p-2"></p>
                         <p className="col-span-1 p-2 ml-auto" style={{ color: "#ffeaaf", fontSize: "20px", textAlign: "center", fontFamily: "'Times New Roman', Times, serif" }}>Horse Total: </p>
-                        <p className="col-span-1 p-2" style={{ color: "#ffeaaf", fontSize: "20px", textAlign: "center", fontFamily: "'Times New Roman', Times, serif" }}>{horseTotalCost}</p>
+                        <p className="col-span-1 p-2" style={{ color: "#ffeaaf", fontSize: "20px", textAlign: "center", fontFamily: "'Times New Roman', Times, serif" }}>{horseTotalCost.toLocaleString()}</p>
                     </div>
                 </div>
             </div>

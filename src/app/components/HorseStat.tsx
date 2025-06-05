@@ -55,7 +55,7 @@ const HorseStat = ({ horseStat, updateHorseStat }: { horseStat: HorseStatType, u
             <p className="col-span-1 p-2">
                 <input type="text" onChange={updateGoal} value={horseStat.goal} className="p-1" style={{ backgroundColor: "#322e29", borderColor: "#7a6d68", borderWidth: "1px", color: "#fef1d7" }} size={4} />
             </p>
-            <p className="col-span-1 p-2" style={{ color: "#ffeaaf", fontSize: "20px", textAlign: "center", fontFamily: "'Times New Roman', Times, serif" }}>{horseStat.cost}</p>
+            <p className="col-span-1 p-2" style={{ color: "#ffeaaf", fontSize: "20px", textAlign: "center", fontFamily: "'Times New Roman', Times, serif" }}>{horseStat.cost.toLocaleString()}</p>
         </div>
     )
 }
