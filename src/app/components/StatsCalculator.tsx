@@ -137,7 +137,10 @@ const StatsCalculator = () => {
                         <p className="col-span-1 p-2"></p>
                         <p className="col-span-1 p-2"></p>
                         <p className="col-span-1 p-2 ml-auto" style={{ color: "#ffeaaf", fontSize: "20px", textAlign: "center", fontFamily: "'Times New Roman', Times, serif" }}>Character Total: </p>
-                        <p className="col-span-1 p-2" style={{ color: "#ffeaaf", fontSize: "20px", textAlign: "center", fontFamily: "'Times New Roman', Times, serif" }}>{charTotalCost.toLocaleString()}</p>
+                        <div className="col-span-1 p-2 flex justify-end gap-1 items-center">
+                            <p style={{ color: "#ffeaaf", fontSize: "20px", textAlign: "center", fontFamily: "'Times New Roman', Times, serif" }}>{charTotalCost.toLocaleString()}</p>
+                            <img src="/assets/gold.gif" style={{ height: 26 }} />
+                        </div>
                     </div>
                 </div>
             </div>
@@ -168,13 +171,19 @@ const StatsCalculator = () => {
                         <p className="col-span-1 p-2"></p>
                         <p className="col-span-1 p-2"></p>
                         <p className="col-span-1 p-2 ml-auto" style={{ color: "#ffeaaf", fontSize: "20px", textAlign: "center", fontFamily: "'Times New Roman', Times, serif" }}>Horse Total: </p>
-                        <p className="col-span-1 p-2" style={{ color: "#ffeaaf", fontSize: "20px", textAlign: "center", fontFamily: "'Times New Roman', Times, serif" }}>{horseTotalCost.toLocaleString()}</p>
+                        <div className="col-span-1 p-2 flex justify-end gap-1 items-center">
+                            <p style={{ color: "#ffeaaf", fontSize: "20px", textAlign: "center", fontFamily: "'Times New Roman', Times, serif" }}>{horseTotalCost.toLocaleString()}</p>
+                            <img src="/assets/gold.gif" style={{ height: 26 }} />
+                        </div>
                     </div>
                 </div>
             </div>
-            <p style={{ color: "#ffeaaf", fontSize: "20px", textAlign: "center", fontFamily: "'Times New Roman', Times, serif" }}>
-                Total: {totalCost.toLocaleString()}
-            </p>
+            <div className="flex justify-center items-center">
+                <p style={{ color: "#ffeaaf", fontSize: "20px", textAlign: "center", fontFamily: "'Times New Roman', Times, serif" }}>
+                    Total: {totalCost.toLocaleString()}
+                </p>
+                <img src="/assets/gold.gif" style={{ height: 26 }} />
+            </div>
         </div >
     )
 }
