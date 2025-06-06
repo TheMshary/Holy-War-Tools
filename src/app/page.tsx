@@ -1,6 +1,6 @@
 import React from 'react'
 import tableHead from '../../public/assets/table_head.jpg';
-import bg from '../../public/assets/cont_0.jpg';
+import bg from '../../public/assets/bg_content_cropped.jpg';
 import StatsCalculator from './components/StatsCalculator';
 
 const Home = () => {

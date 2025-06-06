@@ -114,7 +114,7 @@ const StatsCalculator = () => {
     return (
         <div className="w-auto max-w-fit mx-auto" style={{ width: 712 }}>
             <div className="grid">
-                <div className="col-span-4">
+                <div className="col-span-4 mt-10">
                     <img src="/assets/foot_0_flipped.jpg" />
                 </div>
                 <div className="col-span-4 flex justify-center items-center" style={{ backgroundImage: `url(${Cont_Zero.src})`, width: 712 }}>
