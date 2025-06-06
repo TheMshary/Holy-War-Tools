@@ -44,18 +44,18 @@ const HorseStat = ({ horseStat, updateHorseStat }: { horseStat: HorseStatType, u
     }
 
     return (
-        <div className="col-span-5 grid grid-cols-5 gap-30 ">
-            <p className="col-span-1 p-2" style={{ color: "#ffeaaf", fontSize: "14px", textAlign: "left", fontFamily: "'Times New Roman', Times, serif" }}>{horseStat.name}</p>
-            <p className="col-span-1 p-2">
-                <input type="text" onChange={updateDefault} value={horseStat.default} className="p-1" style={{ backgroundColor: "#322e29", borderColor: "#7a6d68", borderWidth: "1px", color: "#fef1d7" }} size={4} />
+        <div className="col-span-5 grid grid-cols-5 flex items-center" style={{ width: "92%", margin: "auto" }}>
+            <p className="col-span-1" style={{ color: "#ffeaaf", fontSize: "14px", textAlign: "left", fontFamily: "'Times New Roman', Times, serif" }}>{horseStat.name}</p>
+            <p className="col-span-1  mx-auto mx-auto">
+                <input type="text" onChange={updateDefault} value={horseStat.default} className="px-1" style={{ backgroundColor: "#322e29", borderColor: "#7a6d68", borderWidth: "1px", color: "#fef1d7", fontSize: "14px" }} size={4} />
             </p>
-            <p className="col-span-1 p-2">
-                <input type="text" onChange={updateCurrent} value={horseStat.current} className="p-1" style={{ backgroundColor: "#322e29", borderColor: "#7a6d68", borderWidth: "1px", color: "#fef1d7" }} size={4} />
+            <p className="col-span-1  mx-auto">
+                <input type="text" onChange={updateCurrent} value={horseStat.current} className="px-1" style={{ backgroundColor: "#322e29", borderColor: "#7a6d68", borderWidth: "1px", color: "#fef1d7", fontSize: "14px" }} size={4} />
             </p>
-            <p className="col-span-1 p-2">
-                <input type="text" onChange={updateGoal} value={horseStat.goal} className="p-1" style={{ backgroundColor: "#322e29", borderColor: "#7a6d68", borderWidth: "1px", color: "#fef1d7" }} size={4} />
+            <p className="col-span-1  mx-auto">
+                <input type="text" onChange={updateGoal} value={horseStat.goal} className="px-1" style={{ backgroundColor: "#322e29", borderColor: "#7a6d68", borderWidth: "1px", color: "#fef1d7", fontSize: "14px" }} size={4} />
             </p>
-            <div className="col-span-1 p-2 flex justify-end gap-1 items-center">
+            <div className="col-span-1 flex justify-end gap-1 items-center">
                 <p style={{ color: "#ffeaaf", fontSize: "14px", textAlign: "center", fontFamily: "'Times New Roman', Times, serif" }}>{horseStat.cost.toLocaleString()}</p>
                 <img src="/assets/gold.gif" style={{ height: 26 }} />
             </div>

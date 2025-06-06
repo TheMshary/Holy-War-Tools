@@ -121,31 +121,27 @@ const StatsCalculator = () => {
                     <p style={{ color: "#ffeaaf", fontSize: "14px", textAlign: "center", fontFamily: "'Times New Roman', Times, serif" }}>Character Attributes</p>
                 </div>
                 <div style={{ backgroundImage: `url(${Cont_Zero.src})`, width: 712 }}>
-                    <div className="col-span-4">
-                        <div className="col-span-4 grid grid-cols-4 gap-30">
+                    <div className="col-span-4 my-1">
+                        <div className="col-span-4 grid grid-cols-4 gap-30 flex items-center" style={{ width: "92%", margin: "auto" }}>
                             <p className="col-span-1 "></p>
-                            <p className="col-span-1  mr-auto" style={{ color: "#ffeaaf", fontSize: "14px", textAlign: "center", fontFamily: "'Times New Roman', Times, serif" }}>Current</p>
-                            <p className="col-span-1  mr-auto" style={{ color: "#ffeaaf", fontSize: "14px", textAlign: "center", fontFamily: "'Times New Roman', Times, serif" }}>Goal</p>
-                            <p className="col-span-1 " style={{ color: "#ffeaaf", fontSize: "14px", textAlign: "center", fontFamily: "'Times New Roman', Times, serif" }}>Cost</p>
+                            <p className="col-span-1" style={{ color: "#ffeaaf", fontSize: "14px", textAlign: "center", fontFamily: "'Times New Roman', Times, serif" }}>Current</p>
+                            <p className="col-span-1" style={{ color: "#ffeaaf", fontSize: "14px", textAlign: "center", fontFamily: "'Times New Roman', Times, serif" }}>Goal</p>
+                            <p className="col-span-1 " style={{ color: "#ffeaaf", fontSize: "14px", textAlign: "center", fontFamily: "'Times New Roman', Times, serif" }}></p>
                         </div>
                     </div>
-                    <div className="col-span-4">
+                    <div className="col-span-4" style={{ paddingRight: "8px", paddingLeft: "8px" }}>
                         {charStats.map(charStat => (
                             <div key={charStat.name}>
                                 <CharStat charStat={charStat} updateCharStat={updateCharStat} />
-                                {charStat.name != "Stamina" && <Image src="/assets/trennlinie.jpg" width="682" height="13" alt="divider" className="mx-auto" />}
+                                {charStat.name != "Stamina" && <Image src="/assets/trennlinie.jpg" width={682} height={13} alt="divider" className="mx-auto" />}
                             </div>
                         ))}
                     </div>
-                    <div className="col-span-4">
-                        <div className="col-span-4 grid grid-cols-4 gap-30">
-                            <p className="col-span-1 p-2"></p>
-                            <p className="col-span-1 p-2"></p>
-                            <p className="col-span-1 p-2 ml-auto" style={{ color: "#ffeaaf", fontSize: "14px", textAlign: "center", fontFamily: "'Times New Roman', Times, serif" }}>Character Total: </p>
-                            <div className="col-span-1 p-2 flex justify-end gap-1 items-center">
-                                <p style={{ color: "#ffeaaf", fontSize: "14px", textAlign: "center", fontFamily: "'Times New Roman', Times, serif" }}>{charTotalCost.toLocaleString()}</p>
-                                <img src="/assets/gold.gif" style={{ height: 26 }} />
-                            </div>
+                    <div className="col-span-4 flex items-center mx-auto" style={{ width: "92%" }}>
+                        <p className="col-span-1 p-2 ml-auto" style={{ color: "#ffeaaf", fontSize: "14px", textAlign: "center", fontFamily: "'Times New Roman', Times, serif" }}>Character Total: </p>
+                        <div className="col-span-1 p-2 flex justify-end gap-1 items-center">
+                            <p style={{ color: "#ffeaaf", fontSize: "14px", textAlign: "center", fontFamily: "'Times New Roman', Times, serif" }}>{charTotalCost.toLocaleString()}</p>
+                            <img src="/assets/gold.gif" style={{ height: 26 }} />
                         </div>
                     </div>
                 </div>
@@ -155,36 +151,31 @@ const StatsCalculator = () => {
                     <p style={{ color: "#ffeaaf", fontSize: "14px", textAlign: "center", fontFamily: "'Times New Roman', Times, serif" }}>Horse Attributes</p>
                 </div>
                 <div style={{ backgroundImage: `url(${Cont_Zero.src})`, width: 712 }}>
-                    <div className="col-span-5">
-                        <div className="col-span-5 grid grid-cols-5 gap-30">
+                    <div className="col-span-5 p-1">
+                        <div className="col-span-5 grid grid-cols-5 flex items-center" style={{ width: "92%", margin: "auto" }}>
                             <p className="col-span-1 p-2"></p>
-                            <p className="col-span-1 p-2 mr-auto" style={{ color: "#ffeaaf", fontSize: "14px", textAlign: "center", fontFamily: "'Times New Roman', Times, serif" }}>Default</p>
-                            <p className="col-span-1 p-2 mr-auto" style={{ color: "#ffeaaf", fontSize: "14px", textAlign: "center", fontFamily: "'Times New Roman', Times, serif" }}>Current</p>
-                            <p className="col-span-1 p-2 mr-auto" style={{ color: "#ffeaaf", fontSize: "14px", textAlign: "center", fontFamily: "'Times New Roman', Times, serif" }}>Goal</p>
-                            <p className="col-span-1 p-2" style={{ color: "#ffeaaf", fontSize: "14px", textAlign: "center", fontFamily: "'Times New Roman', Times, serif" }}>Cost</p>
+                            <p className="col-span-1 p-2" style={{ color: "#ffeaaf", fontSize: "14px", textAlign: "center", fontFamily: "'Times New Roman', Times, serif" }}>Default</p>
+                            <p className="col-span-1 p-2" style={{ color: "#ffeaaf", fontSize: "14px", textAlign: "center", fontFamily: "'Times New Roman', Times, serif" }}>Current</p>
+                            <p className="col-span-1 p-2" style={{ color: "#ffeaaf", fontSize: "14px", textAlign: "center", fontFamily: "'Times New Roman', Times, serif" }}>Goal</p>
+                            <p className="col-span-1 p-2" style={{ color: "#ffeaaf", fontSize: "14px", textAlign: "center", fontFamily: "'Times New Roman', Times, serif" }}></p>
                         </div>
                     </div>
-                    <div className="col-span-5">
+                    <div className="col-span-5" style={{ paddingRight: "8px", paddingLeft: "8px" }}>
                         {horseStats.map(horseStat => (
                             <div key={horseStat.name}>
                                 <HorseStat horseStat={horseStat} updateHorseStat={updateHorseStat} />
-                                {horseStat.name != "Stamina" && <Image src="/assets/trennlinie.jpg" width="682" height="13" alt="divider" className="mx-auto" />}
+                                {horseStat.name != "Stamina" && <Image src="/assets/trennlinie.jpg" width={682} height={13} alt="divider" className="mx-auto" />}
                             </div>
                         ))}
                     </div>
-                    <div className="col-span-5">
-                        <div className="col-span-5 grid grid-cols-5 gap-30">
-                            <p className="col-span-1 p-2"></p>
-                            <p className="col-span-1 p-2"></p>
-                            <p className="col-span-1 p-2"></p>
-                            <p className="col-span-1 p-2 ml-auto" style={{ color: "#ffeaaf", fontSize: "14px", textAlign: "center", fontFamily: "'Times New Roman', Times, serif" }}>Horse Total: </p>
-                            <div className="col-span-1 p-2 flex justify-end gap-1 items-center">
-                                <p style={{ color: "#ffeaaf", fontSize: "14px", textAlign: "center", fontFamily: "'Times New Roman', Times, serif" }}>{horseTotalCost.toLocaleString()}</p>
-                                <img src="/assets/gold.gif" style={{ height: 26 }} />
-                            </div>
+                    <div className="col-span-5 flex items-center mx-auto" style={{ width: "92%" }}>
+                        <p className="col-span-1 p-2 ml-auto" style={{ color: "#ffeaaf", fontSize: "14px", textAlign: "center", fontFamily: "'Times New Roman', Times, serif" }}>Horse Total: </p>
+                        <div className="col-span-1 p-2 flex justify-end gap-1 items-center">
+                            <p style={{ color: "#ffeaaf", fontSize: "14px", textAlign: "center", fontFamily: "'Times New Roman', Times, serif" }}>{horseTotalCost.toLocaleString()}</p>
+                            <img src="/assets/gold.gif" style={{ height: 26 }} />
                         </div>
                     </div>
-                    <div className="col-span-5 flex justify-center items-center">
+                    <div className="col-span-5 flex justify-center items-center" style={{ backgroundImage: `url(${InnerHead.src})`, height: 51, width: 712 }}>
                         <p style={{ color: "#ffeaaf", fontSize: "14px", textAlign: "center", fontFamily: "'Times New Roman', Times, serif" }}>
                             Total: {totalCost.toLocaleString()}
                         </p>
