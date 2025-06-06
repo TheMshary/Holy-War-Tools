@@ -45,7 +45,7 @@ const HorseStat = ({ horseStat, updateHorseStat }: { horseStat: HorseStatType, u
 
     return (
         <div className="col-span-5 grid grid-cols-5 gap-30 ">
-            <p className="col-span-1 p-2" style={{ color: "#ffeaaf", fontSize: "20px", textAlign: "left", fontFamily: "'Times New Roman', Times, serif" }}>{horseStat.name}</p>
+            <p className="col-span-1 p-2" style={{ color: "#ffeaaf", fontSize: "14px", textAlign: "left", fontFamily: "'Times New Roman', Times, serif" }}>{horseStat.name}</p>
             <p className="col-span-1 p-2">
                 <input type="text" onChange={updateDefault} value={horseStat.default} className="p-1" style={{ backgroundColor: "#322e29", borderColor: "#7a6d68", borderWidth: "1px", color: "#fef1d7" }} size={4} />
             </p>
@@ -56,7 +56,7 @@ const HorseStat = ({ horseStat, updateHorseStat }: { horseStat: HorseStatType, u
                 <input type="text" onChange={updateGoal} value={horseStat.goal} className="p-1" style={{ backgroundColor: "#322e29", borderColor: "#7a6d68", borderWidth: "1px", color: "#fef1d7" }} size={4} />
             </p>
             <div className="col-span-1 p-2 flex justify-end gap-1 items-center">
-                <p style={{ color: "#ffeaaf", fontSize: "20px", textAlign: "center", fontFamily: "'Times New Roman', Times, serif" }}>{horseStat.cost.toLocaleString()}</p>
+                <p style={{ color: "#ffeaaf", fontSize: "14px", textAlign: "center", fontFamily: "'Times New Roman', Times, serif" }}>{horseStat.cost.toLocaleString()}</p>
                 <img src="/assets/gold.gif" style={{ height: 26 }} />
             </div>
         </div>
