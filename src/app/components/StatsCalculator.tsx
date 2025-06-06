@@ -117,6 +117,9 @@ const StatsCalculator = () => {
                 <div className="col-span-4">
                     <img src="/assets/foot_0_flipped.jpg" />
                 </div>
+                <div className="col-span-4 flex justify-center items-center" style={{ backgroundImage: `url(${Cont_Zero.src})`, width: 712 }}>
+                    <p style={{ color: "#ffeaaf", fontSize: "18px", textAlign: "center", fontWeight: "bold", fontFamily: "'Times New Roman', Times, serif" }}>Stats Calculator</p>
+                </div>
                 <div className="col-span-4 flex justify-center items-center" style={{ backgroundImage: `url(${InnerHead.src})`, height: 51, width: 712 }}>
                     <p style={{ color: "#ffeaaf", fontSize: "14px", textAlign: "center", fontFamily: "'Times New Roman', Times, serif" }}>Character Attributes</p>
                 </div>
