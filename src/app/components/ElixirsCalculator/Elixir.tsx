@@ -30,7 +30,7 @@ const Elixir = ({ elixir, updateElixir }: { elixir: ElixirType, updateElixir: Fu
                 <input type="text" onChange={updatePrice} value={elixir.price} style={{ backgroundColor: "#322e29", borderColor: "#7a6d68", borderWidth: "1px", color: "#fef1d7", fontSize: "14px" }} className="px-1" size={4} />
             </p>
             <div className="col-span-1 flex justify-end gap-1 items-center">
-                <p style={{ color: "#ffeaaf", fontSize: "14px", textAlign: "center", fontFamily: "'Times New Roman', Times, serif" }}>{elixir.revenue}</p>
+                <p style={{ color: "#ffeaaf", fontSize: "14px", textAlign: "center", fontFamily: "'Times New Roman', Times, serif" }}>{elixir.revenue.toLocaleString()}</p>
                 <img src="/assets/gold.gif" style={{ height: 26 }} />
             </div>
         </div>
