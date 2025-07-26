@@ -1,7 +1,7 @@
 'use client';
 import React, { useEffect, useMemo, useState } from 'react'
-import InnerHead from "../assets/images/innerhead_0_0.jpg";
-import Cont_Zero from "../assets/images/cont_0_original.jpg";
+import InnerHead from "../../assets/images/innerhead_0_0.jpg";
+import Cont_Zero from "../../assets/images/cont_0_original.jpg";
 import Image from "next/image";
 import CharStat from './CharStat';
 import HorseStat from './HorseStat';
