@@ -80,8 +80,8 @@ const ElixirsCalculator = () => {
                     <div className="col-span-4 my-1">
                         <div className="col-span-4 grid grid-cols-4 gap-30 flex items-center" style={{ width: "92%", margin: "auto" }}>
                             <p className="col-span-1" style={{ color: "#ffeaaf", fontSize: "14px", textAlign: "center", fontFamily: "'Times New Roman', Times, serif" }}></p>
-                            <p className="col-span-1" style={{ color: "#ffeaaf", fontSize: "14px", textAlign: "center", fontFamily: "'Times New Roman', Times, serif" }}>Quantity</p>
                             <p className="col-span-1" style={{ color: "#ffeaaf", fontSize: "14px", textAlign: "center", fontFamily: "'Times New Roman', Times, serif" }}>Price</p>
+                            <p className="col-span-1" style={{ color: "#ffeaaf", fontSize: "14px", textAlign: "center", fontFamily: "'Times New Roman', Times, serif" }}>Quantity</p>
                             <p className="col-span-1 " style={{ color: "#ffeaaf", fontSize: "14px", textAlign: "center", fontFamily: "'Times New Roman', Times, serif" }}>Revenue</p>
                         </div>
                     </div>
